@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { UserService } from 'src/services/user.service';
+import { UserDTO } from 'src/models/user.dto';
 
 @Component({
   selector: 'app-page-body',
@@ -9,15 +10,22 @@ import { UserService } from 'src/services/user.service';
 })
 export class PageBodyComponent implements OnInit {
 
+  usersList: UserDTO[];
+
   constructor(public userService: UserService) {
   }
 
   ngOnInit() {
+    this.findUsers();
+  }
+
+  findUsers() {
     this.userService.findAll().subscribe(
-      res => { console.log(res);
+      response => {
+        this.usersList = response;
+        //console.log(res);
       },
-      error => { console.log(error);
-      });
+      error => { console.log(error); });
   }
 
 }
