@@ -5,7 +5,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { PageBodyComponent } from './page-body/page-body.component';
+
 import { UserService } from 'src/services/user.service';
+import { NoteService } from 'src/services/note.service';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +21,8 @@ import { UserService } from 'src/services/user.service';
     HttpClientModule
   ],
   providers: [
-    UserService
+    UserService,
+    NoteService
   ],
   bootstrap: [AppComponent]
 })
